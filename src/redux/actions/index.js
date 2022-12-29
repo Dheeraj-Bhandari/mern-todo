@@ -3,12 +3,19 @@ import { ADDNEW_TODO  , GETALL_TODO ,TOGGLE_TODO, UPDATE_TODO , DELETE_TODO , TO
 
 
 const API_URL = `https://dheeraj-kumar-pw06-084-msav.vercel.app/`
+let axiosConfig = {
+    headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*",
+    }
+  };
+
 
 export const addNewTodo=(data) => async(dispatch)=>{
 
     try {
         console.log("Inside addTodo")
-       const res =  await axios.post(`${API_URL}/todos`, {data})
+       const res =  await axios.post(`${API_URL}/todos`, {data},axiosConfig)
         dispatch({type: ADDNEW_TODO, payload: res.data})
 
     } catch (error) {
