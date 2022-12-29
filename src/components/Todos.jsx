@@ -34,7 +34,7 @@ const Todos = () => {
       </div>
       <ul>
         {todos
-          ? getTodo.map((ele) => {
+          ? todos.map((ele) => {
               return <Todo todo={ele} id={ele._id} key={ele._id} />;
             })
           : ""}
